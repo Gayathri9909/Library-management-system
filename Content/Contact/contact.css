@@ -1,0 +1,81 @@
+﻿body {
+}
+.contact-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-image: url("aboutpic1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(50%);
+    z-index: -1;
+    height: 180px;
+}
+.contact-text {
+    text-align: center;
+    font-size: 55px;
+    font-family: 'Brush Script MT';
+    padding: 20px;
+}
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;;
+    margin-right:200px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+    .form-row label {
+        flex: 1;
+        min-width: 120px;
+        font-weight: bold;
+    }
+
+    .form-row input,
+    .form-row textarea {
+        flex: 2;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+        .form-row input[type="text"],
+        .form-row input[type="email"] {
+            width: 100%;
+        }
+
+    .form-row textarea {
+        width: 100%;
+        resize: vertical; /* Allows vertical resizing */
+    }
+
+.contact-button {
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left:140px;
+}
+
+    .contact-button:hover {
+        background-color: darkgoldenrod;
+    }
+
+    .contact-section2{
+        margin-left:90px;
+        padding:70px;
+        margin-top:70px;
+    }

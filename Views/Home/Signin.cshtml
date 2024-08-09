@@ -1,0 +1,200 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Signin/Signup.css">
+    <link href="~/Content/Home/Nav.css" rel="stylesheet" />
+    <title>Register</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    @{
+        ViewBag.Title = "Signup";
+    }
+    @model library.Models.UserModel
+    @*navbar section*@
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-custom">
+        <div class="container">
+            <h2 class="icon">Libra</h2>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li style="margin-left:780px">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Books", "Booklist", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @*navbar end*@
+    <main>
+        <!-- Background Image -->
+        <div class="background"></div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <!-- Registration Form -->
+            <div class="register-form">
+                <h1>Register</h1>
+                <form action="" method="post">
+                    <div class="form-field">
+                        <label for="first-name" class="form-label">First name:</label>
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-field">
+                        <label for="last-name" class="form-label">Last name:</label>
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-field">
+                        <label for="date-of-birth" class="form-label">Date of birth:</label>
+                        @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", type = "date", max = "2007-12-31" } })
+                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email" class="form-label">Email:</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field">
+                        <label for="password" class="form-label">Password:</label>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field">
+                        <label for="confirm-password" class="form-label">Confirm password:</label>
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field">
+                        <label for="phonenumber" class="form-label">Phonenumber:</label>
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-field">
+                        <label for="state" class="form-label">State:</label>
+                        @Html.DropDownListFor(
+                    model => model.State,
+                    new List<SelectListItem>
+                    {
+                        new SelectListItem { Text = "Please select your State", Value = "", Disabled = true, Selected = true },
+                        new SelectListItem { Text = "Kerala", Value = "Kerala" },
+                        new SelectListItem { Text = "Tamilnadu", Value = "Tamilnadu" },
+                        new SelectListItem { Text = "Maharashtra", Value = "Maharashtra" }
+                    },
+                    new { @class = "form-control", id = "stateDropdown" }
+                )
+                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field">
+                        <label for="district" class="form-label">District:</label>
+                        @Html.DropDownListFor(
+                           model => model.District,
+                           new List<SelectListItem>(), 
+                           "Please select your District",
+                           new { @class = "form-control", id = "districtDropdown" }
+              )
+                        @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field">
+                        <label for="address" class="form-label">Address:</label>
+                        @*<textarea class="form-control" name="address" id="address" rows="4"
+                            placeholder="Your address with pin code"></textarea>*@
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-field register">
+                        <button type="submit" id="register-btn">Register</button>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10" style="color:green">
+                            @ViewBag.Message
+                        </div>
+                    </div>
+                </form>
+                <div class="login-link">
+                    Already have an account?
+                    @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })
+                </div>
+
+            </div>
+        }
+    </main>
+    <script>
+        $(document).ready(function () {
+            // Define the district options for each state
+            var districts = {
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kollam"],
+                "Tamilnadu": ["Chennai", "Coimbatore", "Madurai"],
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur"]
+            };
+
+            // Handle the change event of the state dropdown
+            $('#stateDropdown').on('change', function () {
+                var selectedState = $(this).val();
+                var districtDropdown = $('#districtDropdown');
+
+                // Clear current district options
+                districtDropdown.empty();
+                districtDropdown.append('<option value="">Please select your District</option>');
+
+                // Add new district options based on the selected state
+                if (districts[selectedState]) {
+                    $.each(districts[selectedState], function (index, district) {
+                        districtDropdown.append('<option value="' + district + '">' + district + '</option>');
+                    });
+                }
+            });
+        });
+    </script>
+    @*footer section*@
+    <footer>
+        <div style="display:flex">
+            <div class="footer-section1">
+                <h2 class="ficon">Libra</h2>
+                <p>The library is a quiet haven where we can escape the hustle and bustle of everyday life.</p>
+                <div style="margin-left:30px">
+                    <img src="~/Content/Home/fb.png" style="width:30px;height:30px;margin-right:15px;" />
+                    <img src="~/Content/Home/insta.jpg" style="width: 30px; height: 30px; margin-right: 15px;" />
+                    <img src="~/Content/Home/link.png" style="width:30px;height:30px" />
+                </div>
+            </div>
+            <div class="footer-section2">
+                <h3 style="margin-bottom:10px;">Contact Us</h3>
+                <h6>305,University building,Kochi,Ernakulam</h6>
+                <h6>Email:<i>libralibrary@gmail.com</i></h6>
+                <h6>Phone:<i>+91 9999999999</i></h6>
+                <h6>Website:<i>www.libralibrary@gmail.com</i></h6>
+            </div>
+        </div>
+        <p style="text-align:center;font-weight:700">&copy; @DateTime.Now.Year - All right reserved</p>
+    </footer>
+
+
+</body>
+
+</html>
+
+

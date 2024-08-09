@@ -1,0 +1,46 @@
+﻿.adminbtn{
+    width:300px;
+    padding:20px;
+    background-color:darkgoldenrod;
+    border:none;
+    color:white;
+    font-size:22px;
+    text-align:center;
+}
+.amain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-image: url("aboutpic1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(50%);
+    z-index: -1;
+    height: 180px;
+}
+.admin-main{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+.admin-text{
+    text-align:center;
+    font-size:50px;
+    font-family:sans-serif;
+    padding:50px;
+}
+.admin-subtext {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Brush Script MT';
+    padding: 50px;
+}
+.admin-list{
+    padding:40px;
+    margin-bottom:40px;
+}
+.admin-footer{
+    margin-top:20px;
+    margin-bottom:20px;
+}

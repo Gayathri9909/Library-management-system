@@ -1,0 +1,72 @@
+﻿<head>
+    <link href="~/Content/Admin/Adminstyle.css" rel="stylesheet" />
+</head>
+<body>
+    @*navbar*@
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-custom">
+        <div class="container">
+            <h2 class="icon">Libra</h2>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li style="margin-left:810px">@Html.ActionLink("Home", "Adminhome", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @*navbar end*@
+
+    <div class="amain"></div>
+    <div class="admin-main">
+        @model IEnumerable<library.Models.AdminModel>
+        <h1 class="admin-subtext">Admin Details</h1>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdminPassword)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdminId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdminName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdminPassword)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create", "AdminCreate", "Admin", null, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Edit", "EditAdmin", "Admin", new { id = item.AdminId }, new { @class = "btn btn-secondary" }) |
+                        @Html.ActionLink("Delete", "AdminDelete", "Admin", new { id = item.AdminId }, new { @class = "btn btn-danger" })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    @*footer*@
+    <footer>
+        <div class="admin-footer">
+            <p style="text-align:center;font-weight:700">&copy; @DateTime.Now.Year - All right reserved</p>
+        </div>
+    </footer>
+</body>

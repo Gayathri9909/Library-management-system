@@ -1,0 +1,59 @@
+﻿body {
+}
+.book-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-image: url("aboutpic1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(50%);
+    z-index: -1;
+    height: 248px;
+}
+.book-section{
+ /*   margin-top:30px;*/
+    margin-bottom:30px;
+}
+.book-text{
+    font-size:40px;
+    font-family:'Brush Script MT';
+    font-weight:700;
+    padding:10px;
+}
+.book-list{
+    margin-left:60px;
+    margin-top:10px;
+    margin-bottom:20px;
+    padding:10px;
+}
+/* Container styling */
+.container {
+    margin-top: 40px;
+    padding: 0 15px;
+    margin-left:40px;
+}
+.custom-header {
+    background-color: goldenrod; 
+    color: white; 
+    font-weight: 400; 
+    padding: 20px 0; 
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+/* Styling for data rows */
+.row.mb-2 {
+    border-bottom: 1px solid black; 
+    padding: 10px 0; 
+}
+
+.col-sm-1,
+.col-sm-2,
+.col-sm-3 {
+    padding: 10px;
+}
+
+

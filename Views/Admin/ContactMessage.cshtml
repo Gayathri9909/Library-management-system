@@ -1,0 +1,75 @@
+﻿<head>
+    <link href="~/Content/Admin/Adminstyle.css" rel="stylesheet" />
+</head>
+<body>
+    @*navbar*@
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-custom">
+        <div class="container">
+            <h2 class="icon">Libra</h2>
+            @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li style="margin-left:810px">@Html.ActionLink("Home", "Adminhome", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @*navbar end*@
+
+    <div class="amain"></div>
+    <div class="admin-main">
+        <h1 class="admin-subtext"> Message details</h1>
+
+        @model IEnumerable<library.Models.ContactModel>
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+    @*footer*@
+    <footer>
+        <div class="admin-footer">
+            <p style="text-align:center;font-weight:700">&copy; @DateTime.Now.Year - All right reserved</p>
+        </div>
+    </footer>
+</body>
